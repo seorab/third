@@ -5,3 +5,10 @@ class Address(models.Model):
 
     def __str__(self):
         return self.address
+
+class House(models.Model):
+    number = models.IntegerField()
+    address = models.ForeignKey(
+        Address, on_delete=models.CASCADE)
+    def __str__(self):
+        return str(self.number) + self.address.address  # 101부산시청
